@@ -1,6 +1,5 @@
 package com.example.jiolocal.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,7 @@ class OffersAdapters( var data: List<Offers>) : RecyclerView.Adapter<OfferViewHo
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferViewHolder {
         var view: View
         val offersBinding : OffersItemBinding  = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context), R.layout.offers_item, parent, false
+            LayoutInflater.from(parent.context), R.layout.offers_first_list_item, parent, false
         )
 
         return OfferViewHolder(offersBinding)

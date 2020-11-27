@@ -23,4 +23,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mumbai">Mumbai,</string>
     <string name="pinDemo">40078</string>
+    <string name="massage_for_women">Massage For Women</string>
+    <string name="starting_at">Starting at</string>
+    <string name="rs_1200">Rs 1200</string>
 </resources>

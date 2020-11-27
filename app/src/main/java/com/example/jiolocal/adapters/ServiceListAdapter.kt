@@ -14,19 +14,11 @@ class ServiceListAdapter(val data: List<Services>, context: Context) : BaseAdapt
     val contexts = context
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val grid : GridItemBinding
+        val grid: GridItemBinding
         val layoutInflater = LayoutInflater.from(parent?.context)
-
-        if(convertView == null) {
-            grid = DataBindingUtil.inflate(layoutInflater, R.layout.grid_item, parent, false)
-
-            grid.gridServiceItem = data[position]
-        }else{
-           grid = convertView as GridItemBinding
-        }
-
+        grid = DataBindingUtil.inflate(layoutInflater, R.layout.grid_item, parent, false)
+        grid.gridServiceItem = data[position]
         return grid.root
-
     }
 
     override fun getItem(position: Int): Any {

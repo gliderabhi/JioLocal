@@ -55,7 +55,6 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
                     false
                 )
                 viewHolder.recyclerView1.adapter = OffersAdapters(parentItem)
-
                 viewHolder.simpleView.visibility = View.INVISIBLE
                 viewHolder.recyclerView2.visibility = View.INVISIBLE
                 viewHolder.recyclerView1.visibility = View.VISIBLE
@@ -85,9 +84,9 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
                     false
                 )
 
+                viewHolder.dataType.text = context.getString(R.string.TopOffers)
                 viewHolder.recyclerView1.adapter = TopOfferHeadAdapter(parentItem.headCategoryList)
                 viewHolder.recyclerView1.adapter = TopOfferListAdapter(parentItem.listEachType[0] as List<TopOffers>)
-
                 viewHolder.dataType.text = context.getString(R.string.TopOffers)
                 viewHolder.simpleView.visibility = View.INVISIBLE
                 viewHolder.recyclerView2.visibility = View.VISIBLE
@@ -99,6 +98,8 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
 
                 (viewHolder as MainRecyclerHolder)
                 val parentItem = data[position] as List<Offers>
+
+                viewHolder.dataType.text = context.getString(R.string.PopularServices)
                // AdapterImplementation(viewHolder,parentItem,viewPool, context.getString(R.string.Offers))
 
             }

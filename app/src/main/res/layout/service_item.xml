@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="serviceItem"
+            type="com.example.jiolocal.dao.ServiceDetails" />
+    </data>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/ratingIcon"
+        app:layout_constraintStart_toEndOf="@+id/ratingIcon"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/service_item"
+            android:layout_width="180dp"
+            android:layout_height="130dp"
+            android:src="@drawable/food_image"
+            android:scaleType="fitXY"
+            android:image="@{serviceItem.imageUrl}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/service_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/ServiceTitle"
+            android:textSize="15sp"
+            text="@{serviceItem.serviceName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/service_item" />
+
+        <TextView
+            android:id="@+id/addressLine1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ServiceTitle"
+            android:textSize="12sp"
+            text="@{serviceItem.addressLine1}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.244"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/service_title" />
+
+        <TextView
+            android:id="@+id/addressLine2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ServiceTitle"
+            android:textSize="12sp"
+            text="@{serviceItem.addressLine2}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.244"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addressLine1" />
+
+        <TextView
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/Rate"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            text="@(serviceItem.Setrate)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.231"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addressLine2" />
+
+        <TextView
+            android:id="@+id/timeInWords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/TimeInWords"
+            setDuration="@(serviceItem.setDuration)"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.659"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addressLine2" />
+
+        <TextView
+            android:id="@+id/ratingText"
+            android:layout_width="31dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/rating"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.193"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeInWords" />
+
+        <ImageView
+            android:id="@+id/ratingIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/rating_icon"
+            app:layout_constraintStart_toEndOf="@+id/ratingText"
+            app:layout_constraintTop_toBottomOf="@+id/timeInWords"
+            tools:layout_editor_absoluteY="368dp" />
+
+        <TextView
+            android:id="@+id/noOfRatingText"
+            android:layout_width="61dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/NoOfrating"
+            android:textColor="#C3BEBE"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintStart_toEndOf="@id/ratingIcon"
+            app:layout_constraintTop_toBottomOf="@+id/timeInWords" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</layout>

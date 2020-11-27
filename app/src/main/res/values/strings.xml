@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">JioLocal</string>
+    <string name="ServiceTitle">Daily Salad Meals</string>
+    <string name="Rate">Rs. 1400</string>
+    <string name="TimeInWords">/week</string>
+    <string name="rating">4.1</string>
+    <string name="NoOfrating">4 ratings</string>
+    <string name="offers">Offers</string>
+    <string name="Offers">Offers</string>
+    <string name="TypeServiceList">Service Lists</string>
+    <string name="TopOffers">Top Offers</string>
+    <string name="PopularServices">Popular Services</string>
+    <string name="TopRecentlyViewed">Recently Viewed</string>
+    <string name="viewAll">View All Services</string>
+    <string name="saloon">Saloon</string>
+    <string name="dataType">Data Type</string>
+    <string name="ServiceListHead">Service List</string>
+    <string name="pin">Enter pincode</string>
+    <string name="pinDescription">Enter pincode to see service availability</string>
+    <string name="detecMyLocation">Detect My Location</string>
+    <string name="apply">Apply</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mumbai">Mumbai,</string>
+    <string name="pinDemo">40078</string>
+</resources>

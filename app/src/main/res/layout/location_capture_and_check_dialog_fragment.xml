@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.LocationCaptureAndCheckDialog">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/head1"
+            android:text="@string/pin"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/head2"
+            android:text="@string/pinDescription"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/head1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/pinEnter"
+            android:drawableLeft="@drawable/pin_code_icon"
+            android:hint="@string/pin"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head2"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/apply"
+            android:textAllCaps="true"
+            android:textColor="@android:color/holo_blue_bright"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:textSize="18sp"
+            android:id="@+id/applyButton"
+            app:layout_constraintTop_toBottomOf="@+id/head2"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/detect_location_icon"
+            app:layout_constraintTop_toBottomOf="@+id/pinEnter"
+            android:layout_marginTop="10dp"
+            android:id="@+id/detect_location_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detecMyLocation"
+            app:layout_constraintTop_toBottomOf="@+id/pinEnter"
+            app:layout_constraintStart_toEndOf="@+id/detect_location_icon"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:id="@+id/detectlocationText"
+            android:textColor="@android:color/holo_red_dark"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

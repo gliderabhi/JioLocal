@@ -2,7 +2,7 @@
 <layout>
     <data>
         <variable
-            name="serviceItem"
+            name="popularServiceItem"
             type="com.example.jiolocal.dao.ServiceDetails" />
     </data>
 <androidx.cardview.widget.CardView
@@ -28,7 +28,7 @@
             android:layout_height="130dp"
             android:src="@drawable/food_image"
             android:scaleType="fitXY"
-            android:image="@{serviceItem.imageUrl}"
+            android:image="@{popularServiceItem.imageUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
@@ -40,7 +40,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/ServiceTitle"
             android:textSize="15sp"
-            text="@{serviceItem.serviceName}"
+            text="@{popularServiceItem.serviceName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.28"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ServiceTitle"
             android:textSize="12sp"
-            text="@{serviceItem.addressLine1}"
+            text="@{popularServiceItem.addressLine1}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.244"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ServiceTitle"
             android:textSize="12sp"
-            text="@{serviceItem.addressLine2}"
+            text="@{popularServiceItem.addressLine2}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.244"
             app:layout_constraintStart_toStartOf="parent"

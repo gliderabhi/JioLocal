@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //check for pin code if correct ok otherwise just show dialog
-        var pinCollected = false
+        var pinCollected = true
         if(!pinCollected){
             supportFragmentManager.beginTransaction()
                 .replace(R.id.bottomDialogFragment, LocationCaptureAndCheckDialog()).commit()

@@ -3,6 +3,7 @@ package com.example.jiolocal.adapters
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -10,10 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jiolocal.R
 import com.example.jiolocal.adapters.viewHolders.MainRecyclerHolder
-import com.example.jiolocal.dao.Offers
-import com.example.jiolocal.dao.Services
-import com.example.jiolocal.dao.TopOfferList
-import com.example.jiolocal.dao.TopOffers
+import com.example.jiolocal.dao.*
 import com.example.jiolocal.databinding.DashboardItemBaseLayoutBinding
 import kotlinx.android.synthetic.main.dashboard_item_base_layout.view.*
 
@@ -55,10 +53,10 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
                     false
                 )
                 viewHolder.recyclerView1.adapter = OffersAdapters(parentItem)
-                viewHolder.simpleView.visibility = View.INVISIBLE
-                viewHolder.recyclerView2.visibility = View.INVISIBLE
+                viewHolder.simpleView.visibility = View.GONE
+                viewHolder.recyclerView2.visibility = View.GONE
                 viewHolder.recyclerView1.visibility = View.VISIBLE
-                viewHolder.dataType.visibility = View.INVISIBLE
+                viewHolder.dataType.visibility = View.GONE
             }
             TypeServiceList -> {
                 (viewHolder as MainRecyclerHolder)
@@ -66,8 +64,8 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
                 viewHolder.dataType.text = context.getString(R.string.ServiceListHead)
                 viewHolder.simpleView.ServiceListGrid.adapter  = ServiceListAdapter(parentItem, context)
                 viewHolder.simpleView.visibility = View.VISIBLE
-                viewHolder.recyclerView2.visibility = View.INVISIBLE
-                viewHolder.recyclerView1.visibility = View.INVISIBLE
+                viewHolder.recyclerView2.visibility = View.GONE
+                viewHolder.recyclerView1.visibility = View.GONE
                 viewHolder.dataType.visibility  = View.VISIBLE
             }
             TypeTopOffers -> {
@@ -86,29 +84,82 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
 
                 viewHolder.dataType.text = context.getString(R.string.TopOffers)
                 viewHolder.recyclerView1.adapter = TopOfferHeadAdapter(parentItem.headCategoryList)
-                viewHolder.recyclerView1.adapter = TopOfferListAdapter(parentItem.listEachType[0] as List<TopOffers>)
+                viewHolder.recyclerView2.adapter = TopOfferListAdapter(
+                    parentItem.listEachType[0] as List<TopOffers>,
+                    context.getString(R.string.TopOffers)
+                )
                 viewHolder.dataType.text = context.getString(R.string.TopOffers)
-                viewHolder.simpleView.visibility = View.INVISIBLE
+
+                viewHolder.recyclerView1.setOnClickListener {
+
+                }
+                viewHolder.simpleView.visibility = View.GONE
                 viewHolder.recyclerView2.visibility = View.VISIBLE
                 viewHolder.recyclerView1.visibility = View.VISIBLE
-                viewHolder.dataType.visibility  = View.VISIBLE
+                viewHolder.dataType.visibility = View.VISIBLE
             }
 
             TypePopularServices -> {
 
                 (viewHolder as MainRecyclerHolder)
-                val parentItem = data[position] as List<Offers>
+                val parentItem = data[position] as PopularServices
 
                 viewHolder.dataType.text = context.getString(R.string.PopularServices)
-               // AdapterImplementation(viewHolder,parentItem,viewPool, context.getString(R.string.Offers))
+                viewHolder.recyclerView1.layoutManager = LinearLayoutManager(
+                    viewHolder.recyclerView1.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+                viewHolder.recyclerView2.layoutManager = LinearLayoutManager(
+                    viewHolder.recyclerView2.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+
+                viewHolder.recyclerView1.adapter = TopOfferHeadAdapter(parentItem.headCategoryList)
+                viewHolder.recyclerView2.adapter = TopOfferListAdapter(
+                    parentItem.listEachType[0] as List<ServiceDetails>,
+                    context.getString(R.string.PopularServices)
+                )
+
+
+                viewHolder.simpleView.visibility = View.GONE
+                viewHolder.recyclerView2.visibility = View.VISIBLE
+                viewHolder.recyclerView1.visibility = View.VISIBLE
+                viewHolder.dataType.visibility = View.VISIBLE
+                // AdapterImplementation(viewHolder,parentItem,viewPool, context.getString(R.string.Offers))
 
             }
 
             TypeRecentylViewed -> {
 
                 (viewHolder as MainRecyclerHolder)
-                val parentItem = data[position] as List<Offers>
-              //  AdapterImplementation(viewHolder,parentItem,viewPool, context.getString(R.string.Offers))
+                val parentItem = data[position] as PopularServices
+
+                viewHolder.dataType.text = context.getString(R.string.recentlyViewed)
+                viewHolder.recyclerView1.layoutManager = LinearLayoutManager(
+                    viewHolder.recyclerView1.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+                viewHolder.recyclerView2.layoutManager = LinearLayoutManager(
+                    viewHolder.recyclerView2.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+
+                viewHolder.recyclerView1.adapter = TopOfferHeadAdapter(parentItem.headCategoryList)
+                viewHolder.recyclerView2.adapter = TopOfferListAdapter(
+                    parentItem.listEachType[0] as List<ServiceDetails>,
+                    context.getString(R.string.PopularServices)
+                )
+
+
+                viewHolder.simpleView.visibility = View.GONE
+                viewHolder.recyclerView2.visibility = View.VISIBLE
+                viewHolder.recyclerView1.visibility = View.VISIBLE
+                viewHolder.dataType.visibility = View.VISIBLE
+                // AdapterImplementation(viewHolder,parentItem,viewPool, context.getString(R.string.Offers))
 
             }
         }

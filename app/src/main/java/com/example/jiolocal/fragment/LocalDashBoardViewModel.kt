@@ -14,6 +14,8 @@ lateinit var dataRepository : DataRepo
         finalList.add(dataRepository.getOffers())
         finalList.add(dataRepository.getServicesList())
         finalList.add(dataRepository.getTheTopOffersLists())
+        finalList.add(dataRepository.getPopularServices())
+        finalList.add(dataRepository.getRecentlyViewed())
         return finalList
     }
 }

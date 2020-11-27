@@ -11,9 +11,9 @@ import com.example.jiolocal.adapters.viewHolders.TopOfferListViewHolder
 import com.example.jiolocal.databinding.OfferHeadItemBinding
 import com.example.jiolocal.databinding.ServiceListBinding
 
-class TopOfferHeadAdapter(val headCategoryList: List<String>) : RecyclerView.Adapter<TopOfferHeadListViewHolder>() {
+class TopOfferHeadAdapter(val headCategoryList: List<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):TopOfferHeadListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecyclerView.ViewHolder {
         var view: View
         val offersBinding : OfferHeadItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.offer_head_item, parent, false
@@ -23,11 +23,11 @@ class TopOfferHeadAdapter(val headCategoryList: List<String>) : RecyclerView.Ada
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return headCategoryList.size
     }
 
-    override fun onBindViewHolder(holder: TopOfferHeadListViewHolder, position: Int) {
-        holder.bind(headCategoryList[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        (holder as TopOfferHeadListViewHolder).bind(headCategoryList[position], position)
     }
 
 }

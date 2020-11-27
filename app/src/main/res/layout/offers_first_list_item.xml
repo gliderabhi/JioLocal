@@ -8,15 +8,15 @@
             type="com.example.jiolocal.dao.Offers" />
     </data>
 <androidx.cardview.widget.CardView
-    android:layout_width="wrap_content"
+    android:layout_width="300dp"
     android:elevation="10dp"
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp"
-    android:layout_height="wrap_content">
+    android:layout_height="200dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="300dp"
+        android:layout_height="200dp">
     <ImageView
         android:id="@+id/offers"
         android:layout_width="300dp"

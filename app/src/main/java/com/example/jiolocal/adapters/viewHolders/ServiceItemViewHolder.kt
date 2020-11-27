@@ -1,10 +1,10 @@
 package com.example.jiolocal.adapters.viewHolders
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.jiolocal.databinding.OffersItemBinding
+import com.example.jiolocal.databinding.OffersFirstListItemBinding
 
-class ServiceItemViewHolder( itemView: OffersItemBinding) : RecyclerView.ViewHolder(itemView.root) {
-        val layout2Binding : OffersItemBinding = itemView
+class ServiceItemViewHolder( itemView: OffersFirstListItemBinding) : RecyclerView.ViewHolder(itemView.root) {
+        val layout2Binding : OffersFirstListItemBinding = itemView
         fun bind(){
 
         }

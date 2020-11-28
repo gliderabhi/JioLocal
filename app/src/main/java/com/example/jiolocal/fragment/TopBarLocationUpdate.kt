@@ -35,6 +35,7 @@ class TopBarLocationUpdate : Fragment() {
         val layout = view.findViewById<ConstraintLayout>(R.id.topBarLay)
         layout.setOnClickListener {
             Log.e(TAG, "onViewCreated: clicked" )
+            //TODO(check if the layout is shown, if shown then do no proceed )
             activity!!.supportFragmentManager.beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .replace(fragmentContainer.id, LocationCaptureAndCheckDialog()).commit()

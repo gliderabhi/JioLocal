@@ -27,4 +27,15 @@
     <string name="starting_at">Starting at</string>
     <string name="rs_1200">Rs 1200</string>
     <string name="recentlyViewed">Recently Viewed</string>
+    <string name="addressLine1">Tawnagar Co-op , HOusing Society, 202</string>
+    <string name="open">OPEN</string>
+    <string name="closesAt">"Closes at 9 pm "</string>
+    <string name="monday">Monday</string>
+    <string name="closed">Closed</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
 </resources>

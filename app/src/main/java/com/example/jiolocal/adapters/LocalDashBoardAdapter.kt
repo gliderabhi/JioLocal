@@ -176,43 +176,4 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
         return TypeOffers
     }
 
-/*
-    fun AdapterImplementation(
-        viewHolder: MainRecyclerHolder,
-        parentIem: List<Any>,
-        viewPool: RecyclerView.RecycledViewPool, dataType: String
-    ) {
-        val layoutManager = LinearLayoutManager(
-            viewHolder.recyclerView1.context,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
-        layoutManager.initialPrefetchItemCount = parentIem.size
-        viewHolder.recyclerView1.layoutManager = layoutManager
-
-        val layoutManager2 = LinearLayoutManager(
-            viewHolder.recyclerView2.context,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
-        viewHolder.recyclerView2.layoutManager = layoutManager2
-
-        when(dataType) {
-            context.getString(R.string.Offers)->
-                viewHolder.recyclerView1.adapter = OffersAdapters(parentIem as List<Offers>)
-            context.getString(R.string.TypeServiceList) ->
-               //this is a simple view
-             TODO()
-            *//*
-                viewHolder.recyclerView.adapter = ServiceListAdapter(parentIem as List<ServiceCategories>)*//*
-            context.getString(R.string.TopOffers) ->
-                viewHolder.recyclerView1.adapter = TopOffersCategoryTitleAdapter(parentIem as List<TwoImageModel>)
-            *//*context.getString(R.string.PopularServices)->
-                viewHolder.recyclerView.adapter = EmployeeAdapter(parentIem as List<Employee>)
-            context.getString(R.string.TopRecentlyViewed)->
-                viewHolder.recyclerView.adapter = EmployeeAdapter(parentIem as List<Employee>)
-*//*
-        }
-        viewHolder.recyclerView1.setRecycledViewPool(viewPool)
-    }*/
 }

@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.FragmentContainerView
 import com.example.jiolocal.fragment.LocalDashBoardFragment
 import com.example.jiolocal.fragment.LocationCaptureAndCheckDialog
+import com.example.jiolocal.fragment.ServiceDetailsPage
 import com.example.jiolocal.fragment.TopBarLocationUpdate
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, LocalDashBoardFragment()).commit()
+            .replace(R.id.fragmentContainer, ServiceDetailsPage()).commit()
 
-        supportFragmentManager.beginTransaction()
+       /* supportFragmentManager.beginTransaction()
             .replace(R.id.locationDisplay, TopBarLocationUpdate()).commit()
 
 
@@ -27,5 +28,14 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.bottomDialogFragment, LocationCaptureAndCheckDialog()).commit()
         }
+*/
+    }
+
+    override fun onBackPressed() {
+       // super.onBackPressed()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, LocalDashBoardFragment()).commitNow()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.locationDisplay, TopBarLocationUpdate()).commit()
+
     }
 }

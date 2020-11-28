@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import java.lang.Exception
 
 class ServiceDetails (val imageUrl : String,
                       val ServiceName : String,
@@ -31,7 +32,13 @@ fun setDuration (view: View, duration: Double){
 @BindingAdapter("text")
 fun Setrate(view : View, rate : String) {
     (view as TextView)
-    view.text = "Rs. $rate"
+    try {
+        if (rate.toDouble() > 0) {
+            view.text = "Rs $rate"
+        }
+    } catch (e: Exception) {
+        view.text = "$rate"
+    }
 }
 
 

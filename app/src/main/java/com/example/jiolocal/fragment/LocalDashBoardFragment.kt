@@ -4,17 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jiolocal.R
 import com.example.jiolocal.adapters.LocalDashBoardAdapter
-import com.example.jiolocal.databinding.ActivityMainBinding
 import com.example.jiolocal.databinding.LocalDashBoardFragmentBinding
+import com.example.jiolocal.fragment.viewModels.LocalDashBoardViewModel
 
 
 class LocalDashBoardFragment : Fragment() {

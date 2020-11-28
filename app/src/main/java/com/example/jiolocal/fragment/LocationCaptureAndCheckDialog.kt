@@ -1,6 +1,5 @@
 package com.example.jiolocal.fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.jiolocal.R
+import com.example.jiolocal.fragment.viewModels.LocationCaptureAndCheckDialogViewModel
 
 class LocationCaptureAndCheckDialog : Fragment() {
 

@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="popularServiceItem"
             type="com.example.jiolocal.dao.ServiceDetails" />
     </data>
 <androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:elevation="10dp"
+    android:elevation="15dp"
     app:cardCornerRadius="5dp"
-    android:layout_margin="5dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/ratingIcon"
-        app:layout_constraintStart_toEndOf="@+id/ratingIcon"
+        app:layout_constraintRight_toRightOf="@+id/ratingIcon"
+        app:layout_constraintLeft_toRightOf="@+id/ratingIcon"
         android:layout_marginBottom="5dp">
 
         <ImageView
@@ -29,7 +28,7 @@
             android:src="@drawable/food_image"
             android:scaleType="fitXY"
             android:image="@{popularServiceItem.imageUrl}"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -39,11 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/ServiceTitle"
-            android:textSize="15sp"
+            android:textSize="18sp"
             text="@{popularServiceItem.serviceName}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.28"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/service_item" />
 
         <TextView
@@ -53,9 +51,8 @@
             android:text="@string/ServiceTitle"
             android:textSize="12sp"
             text="@{popularServiceItem.addressLine1}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.244"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/service_title" />
 
         <TextView
@@ -65,9 +62,8 @@
             android:text="@string/ServiceTitle"
             android:textSize="12sp"
             text="@{popularServiceItem.addressLine2}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.244"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressLine1" />
 
         <TextView
@@ -80,25 +76,23 @@
             android:textSize="18sp"
             android:textStyle="bold"
             text="@(serviceItem.Setrate)"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.231"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressLine2" />
 
         <TextView
             android:id="@+id/timeInWords"
+            setDuration="@(serviceItem.setDuration)"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/TimeInWords"
-            setDuration="@(serviceItem.setDuration)"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.659"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addressLine2" />
+            app:layout_constraintLeft_toRightOf="@+id/rate"
+            app:layout_constraintTop_toBottomOf="@+id/addressLine2"
+            tools:layout_editor_absoluteX="147dp" />
 
         <TextView
             android:id="@+id/ratingText"
@@ -109,9 +103,8 @@
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.193"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timeInWords" />
 
         <ImageView
@@ -120,7 +113,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/rating_icon"
-            app:layout_constraintStart_toEndOf="@+id/ratingText"
+            app:layout_constraintLeft_toRightOf="@+id/ratingText"
             app:layout_constraintTop_toBottomOf="@+id/timeInWords"
             tools:layout_editor_absoluteY="368dp" />
 
@@ -132,9 +125,9 @@
             android:text="@string/NoOfrating"
             android:textColor="#C3BEBE"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintHorizontal_bias="0.123"
-            app:layout_constraintStart_toEndOf="@id/ratingIcon"
+            app:layout_constraintLeft_toRightOf="@id/ratingIcon"
             app:layout_constraintTop_toBottomOf="@+id/timeInWords" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

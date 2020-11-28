@@ -1,4 +1,4 @@
-package com.example.jiolocal.fragment
+package com.example.jiolocal.fragment.viewModels
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

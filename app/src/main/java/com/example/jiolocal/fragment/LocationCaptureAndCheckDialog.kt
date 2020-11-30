@@ -1,18 +1,22 @@
 package com.example.jiolocal.fragment
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.example.jiolocal.MainActivity
 import com.example.jiolocal.R
 import com.example.jiolocal.fragment.viewModels.LocationCaptureAndCheckDialogViewModel
+
 
 class LocationCaptureAndCheckDialog : Fragment() {
 
@@ -58,7 +62,7 @@ class LocationCaptureAndCheckDialog : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                 ?.remove(this)?.commit()
-
+            hideKeyboardFrom(context!!, view)
             blocker.visibility = View.GONE
         }
 
@@ -70,6 +74,10 @@ class LocationCaptureAndCheckDialog : Fragment() {
         }
 
     }
-
+    fun hideKeyboardFrom(context: Context, view: View) {
+        val imm: InputMethodManager =
+            context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 
 }

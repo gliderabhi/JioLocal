@@ -2,9 +2,11 @@ package com.example.jiolocal
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.FragmentContainerView
 import com.example.jiolocal.fragment.LocalDashBoardFragment
@@ -47,10 +49,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun checkAndRequestPermissions(): Boolean {
         val permissionsNeeded = ArrayList<String>()
         for(perm in permissionsNeeded) {
-            //if(applicationContext.checkSelfPermission(perm)!=PackageManager.PERMISSION_GRANTED)
+            if(applicationContext.checkSelfPermission(perm)!=PackageManager.PERMISSION_GRANTED){
+
+            }
         }
 
         return false

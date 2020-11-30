@@ -99,6 +99,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/separator1"
         android:layout_marginTop="5dp"
+        android:animateLayoutChanges="true"
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/holder">
@@ -372,6 +373,37 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/noOfRatings"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/callNow"
+        android:text="@string/callNow"
+        app:layout_constraintTop_toBottomOf="@id/noOfRatings"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_drawable"
+        android:drawableLeft="@drawable/call_icon"
+        android:paddingLeft="30dp"
+        android:textColor="@android:color/holo_blue_light"
+        android:paddingRight="30dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookAppointment"
+        android:text="@string/book_appointment"
+        app:layout_constraintTop_toBottomOf="@id/noOfRatings"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:background="@drawable/button_drawable"
+        android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+        android:layout_marginRight="30dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

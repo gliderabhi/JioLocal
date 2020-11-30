@@ -12,4 +12,5 @@ class MainRecyclerHolder(root: View) : RecyclerView.ViewHolder(root) {
     var recyclerView2: RecyclerView = itemView.findViewById(R.id.recycler2) as RecyclerView
     var simpleView : ConstraintLayout = itemView.findViewById(R.id.serviceList)
     var dataType : TextView = itemView.findViewById(R.id.dataType)
+    var darkStrip : View = itemView.findViewById(R.id.blackStrip)
 }

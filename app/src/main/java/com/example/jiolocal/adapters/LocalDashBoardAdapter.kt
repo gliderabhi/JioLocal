@@ -52,7 +52,10 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
                     LinearLayoutManager.HORIZONTAL,
                     false
                 )
+
                 viewHolder.recyclerView1.adapter = OffersAdapters(parentItem)
+
+                viewHolder.darkStrip.visibility = View.GONE
                 viewHolder.simpleView.visibility = View.GONE
                 viewHolder.recyclerView2.visibility = View.GONE
                 viewHolder.recyclerView1.visibility = View.VISIBLE

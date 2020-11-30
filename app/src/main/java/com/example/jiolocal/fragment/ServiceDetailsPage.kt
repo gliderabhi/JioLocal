@@ -1,5 +1,7 @@
 package com.example.jiolocal.fragment
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
@@ -57,12 +59,20 @@ class ServiceDetailsPage : Fragment() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             ServiceDetailsPageViewModel::class.java
         )
+
         val smallSummary = view.findViewById<ConstraintLayout>(R.id.smallSummaryLay)
         val largeSummary = view.findViewById<ConstraintLayout>(R.id.largeSummaryLay)
         val showLargeSummary = view.findViewById<ImageView>(R.id.showLargeSummary)
+
+        //down arrow to show large summary
         showLargeSummary.setOnClickListener {
             largeSummary.visibility = View.VISIBLE
             smallSummary.visibility = View.GONE
+        }
+        val openText = view.findViewById<TextView>(R.id.openStatus)
+        openText.text = "CLOSED"
+        if(openText.text == "CLOSED"){
+            showLargeSummary.visibility = View.INVISIBLE
         }
         val backButton = view.findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener {
@@ -138,6 +148,7 @@ class ServiceDetailsPage : Fragment() {
         val pager = view.findViewById<ViewPager>(R.id.serviceImages)
         pager.adapter = ViewPagerAdapterImages(context!!, viewModel.getImageLists())
 
+        //up arrow to show small summary
         val showSmallSummary = view.findViewById<ImageView>(R.id.showSmallSummary)
         showSmallSummary.setOnClickListener {
             largeSummary.visibility = View.GONE
@@ -147,8 +158,12 @@ class ServiceDetailsPage : Fragment() {
         val callButton = view.findViewById<Button>(R.id.callNow)
         callButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse("tel:1234567890")
-            startActivity(intent)
+            val perms =
+                (activity as MainActivity).checkSelfPermission(Manifest.permission.CALL_PHONE)
+            if (perms == PackageManager.PERMISSION_GRANTED) {
+                intent.data = Uri.parse("tel:1234567890")
+                startActivity(intent)
+            }
         }
     }
 

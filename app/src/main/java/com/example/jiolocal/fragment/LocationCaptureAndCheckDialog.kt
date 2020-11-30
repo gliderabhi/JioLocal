@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import com.example.jiolocal.MainActivity
 import com.example.jiolocal.R
 import com.example.jiolocal.fragment.viewModels.LocationCaptureAndCheckDialogViewModel
 
@@ -45,6 +47,8 @@ class LocationCaptureAndCheckDialog : Fragment() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             LocationCaptureAndCheckDialogViewModel::class.java
         )
+
+        val blocker = (activity as MainActivity).findViewById<ImageView>(R.id.blocker)
         var moved = false
         val editBox = view.findViewById<EditText>(R.id.pinEnter)
         editBox.setOnClickListener {
@@ -54,7 +58,18 @@ class LocationCaptureAndCheckDialog : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                 ?.remove(this)?.commit()
+
+            blocker.visibility = View.GONE
         }
+
+        blocker.setOnClickListener {
+            blocker.visibility = View.GONE
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+                ?.remove(this)?.commit()
+        }
+
     }
+
 
 }

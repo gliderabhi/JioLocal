@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentTransaction
+import com.example.jiolocal.MainActivity
 import com.example.jiolocal.R
 
 class TopBarLocationUpdate : Fragment() {
@@ -39,6 +41,9 @@ class TopBarLocationUpdate : Fragment() {
             activity!!.supportFragmentManager.beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .replace(fragmentContainer.id, LocationCaptureAndCheckDialog()).commit()
+
+            val blocker = (activity as MainActivity).findViewById<ImageView>(R.id.blocker)
+            blocker.visibility = View.VISIBLE
         }
     }
 

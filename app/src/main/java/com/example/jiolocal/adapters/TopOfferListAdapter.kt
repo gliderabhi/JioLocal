@@ -1,5 +1,6 @@
 package com.example.jiolocal.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -17,6 +18,7 @@ import com.example.jiolocal.databinding.ServiceListBinding
 
 class TopOfferListAdapter(val listEachType: List<Any> , val type : String) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private val TAG = "TopOfferListAdapter"
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         var offerBinding : ServiceListBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.service_list, parent, false
@@ -65,7 +67,8 @@ class TopOfferListAdapter(val listEachType: List<Any> , val type : String) : Rec
                 (holder as PopularServicesViewHolder).bind(listEachType[position] as ServiceDetails)
             }
             "Services Types" -> {
-                (holder as ServiceCateogryItemViewHolder).bind(listEachType[position] as ServiceCategoryItem)
+                Log.w(TAG, "onBindViewHolder: ${listEachType[position]}" )
+                (holder as ServiceCateogryItemViewHolder).bind(/*listEachType[position] as ServiceCategoryItem*/)
             }
         }
     }

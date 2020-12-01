@@ -3,7 +3,6 @@ package com.example.jiolocal.adapters
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -105,7 +104,7 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
             TypePopularServices -> {
 
                 (viewHolder as MainRecyclerHolder)
-                val parentItem = data[position] as PopularServices
+                val parentItem = data[position] as ListUnderHeaderDao
 
                 viewHolder.dataType.text = context.getString(R.string.PopularServices)
                 viewHolder.recyclerView1.layoutManager = LinearLayoutManager(
@@ -137,7 +136,7 @@ class LocalDashBoardAdapter(var data : List<Any>) : RecyclerView.Adapter<Recycle
             TypeRecentylViewed -> {
 
                 (viewHolder as MainRecyclerHolder)
-                val parentItem = data[position] as PopularServices
+                val parentItem = data[position] as ListUnderHeaderDao
 
                 viewHolder.dataType.text = context.getString(R.string.recentlyViewed)
                 viewHolder.recyclerView1.layoutManager = LinearLayoutManager(

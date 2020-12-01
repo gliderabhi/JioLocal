@@ -82,6 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="5dp"
             android:padding="8dp"
+            android:visibility="gone"
             android:textColor="@android:color/holo_blue_light"
             android:background="@drawable/button_drawable"
             android:text="@string/viewAll"
@@ -94,7 +95,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:nestedScrollingEnabled="false"

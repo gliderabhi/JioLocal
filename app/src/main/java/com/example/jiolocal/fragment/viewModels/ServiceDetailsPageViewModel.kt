@@ -1,9 +1,13 @@
 package com.example.jiolocal.fragment.viewModels
 
 import androidx.lifecycle.ViewModel
+import com.example.jiolocal.Repositories.DataRepo
+import com.example.jiolocal.dao.ListUnderHeaderDao
+import com.example.jiolocal.dao.ServiceCategoryItem
 
 class ServiceDetailsPageViewModel : ViewModel() {
 
+    private var dataRepo = DataRepo()
     fun getImageLists(): List<String> {
         val imagesUrls = ArrayList<String>()
         imagesUrls.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLQB6EzkBjTCEEjIwA5XmJWyANhjMyBm8juw&usqp=CAU")
@@ -13,12 +17,7 @@ class ServiceDetailsPageViewModel : ViewModel() {
         return imagesUrls
     }
 
-    fun getOurServicesData() : List<Any> {
-        val categoryList = ArrayList<String>()
-        categoryList.add("3 summer offers")
-        categoryList.add("Monthly essentials")
-        categoryList.add("Facials and spa")
-
-        return categoryList
+    fun getOurServicesData() : ListUnderHeaderDao {
+        return dataRepo.OurServices()
     }
 }

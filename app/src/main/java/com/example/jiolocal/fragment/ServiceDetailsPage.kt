@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,7 @@ import com.example.jiolocal.adapters.TopOfferHeadAdapter
 import com.example.jiolocal.adapters.TopOfferListAdapter
 import com.example.jiolocal.adapters.ViewPagerAdapterImages
 import com.example.jiolocal.adapters.viewHolders.TopOfferHeadListViewHolder
+import com.example.jiolocal.dao.ServiceCategoryItem
 import com.example.jiolocal.databinding.ServiceDetailsPageFragmentBinding
 import com.example.jiolocal.fragment.viewModels.ServiceDetailsPageViewModel
 import java.time.DayOfWeek
@@ -37,6 +39,7 @@ import java.time.LocalDateTime
 
 class ServiceDetailsPage : Fragment() {
 
+    private val TAG = "ServiceDetailsPage"
     companion object {
         fun newInstance() = ServiceDetailsPage()
     }
@@ -58,6 +61,7 @@ class ServiceDetailsPage : Fragment() {
     }
 
 
+    var count = 0
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -76,7 +80,7 @@ class ServiceDetailsPage : Fragment() {
         }
         val openText = view.findViewById<TextView>(R.id.openStatus)
         //openText.text = "CLOSED"
-        if(openText.text == "CLOSED"){
+        if (openText.text == "CLOSED") {
             showLargeSummary.visibility = View.INVISIBLE
         }
         val backButton = view.findViewById<ImageView>(R.id.backButton)
@@ -177,13 +181,15 @@ class ServiceDetailsPage : Fragment() {
 
         //header list of categories of service
         val categoryRecycler = view.findViewById<RecyclerView>(R.id.recycler1)
-        val categoryList = viewModel.getOurServicesData() as ArrayList<String>
         categoryRecycler.layoutManager = LinearLayoutManager(
             categoryRecycler.context,
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        categoryRecycler.adapter = TopOfferHeadAdapter(categoryList)
+
+        val categoryList = viewModel.getOurServicesData()
+
+        categoryRecycler.adapter = TopOfferHeadAdapter(categoryList.headCategoryList)
         categoryRecycler.visibility = View.VISIBLE
 
 
@@ -195,7 +201,36 @@ class ServiceDetailsPage : Fragment() {
             false
         )
 
-        eachCategoryList.adapter = TopOfferListAdapter(ArrayList<Any>(),context!!.getString(R.string.serviceTypes))
+        eachCategoryList.adapter = TopOfferListAdapter(
+            categoryList.listEachType,
+            context!!.getString(R.string.serviceTypes)
+        )
+
+        val addButton = view.findViewById<Button>(R.id.addCartButton)
+        val minus = view.findViewById<Button>(R.id.minus_button)
+        val plus = view.findViewById<Button>(R.id.plus_button)
+
+        addButton.setOnClickListener {
+            minus.visibility = View.VISIBLE
+            plus.visibility = View.VISIBLE
+        }
+
+        minus.setOnClickListener {
+            if (count == 0) {
+                minus.visibility = View.GONE
+                plus.visibility = View.GONE
+                addButton.text = getString(R.string.add)
+            } else {
+                count--
+                addButton.text = "$count added"
+            }
+        }
+
+        plus.setOnClickListener {
+            count++
+            addButton.text = "$count added"
+
+        }
 
     }
 

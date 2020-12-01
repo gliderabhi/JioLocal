@@ -26,7 +26,6 @@ class PopularServicesViewHolder(popularServiceBinding: ServiceItemBinding) : Rec
                     ServiceDetailsPage()
                 ).commit()
             activity.findViewById<FragmentContainerView>(R.id.locationDisplay).visibility = View.GONE
-            Log.e(TAG, "bind: hua ki ni ?")
         }
     }
 

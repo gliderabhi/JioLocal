@@ -2,6 +2,7 @@
     <string name="app_name">JioLocal</string>
     <string name="ServiceTitle">Daily Salad Meals</string>
     <string name="Rate">Rs. 1400</string>
+    <string name="discountedPrice"><strike>Rs 1800</strike></string>
     <string name="TimeInWords">/week</string>
     <string name="rating">4.1</string>
     <string name="NoOfrating">4 ratings</string>
@@ -40,4 +41,8 @@
     <string name="sunday">Sunday</string>
     <string name="callNow">"Call Now "</string>
     <string name="book_appointment">\u0020\u0020 Book Appointment</string>
+    <string name="add">1 added</string>
+    <string name="_70_min">70 min</string>
+    <string name="view_details">View Details</string>
+    <string name="serviceTypes">Services Types</string>
 </resources>

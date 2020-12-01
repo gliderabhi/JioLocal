@@ -12,5 +12,13 @@ class ServiceDetailsPageViewModel : ViewModel() {
 
         return imagesUrls
     }
-    // TODO: Implement the ViewModel
+
+    fun getOurServicesData() : List<Any> {
+        val categoryList = ArrayList<String>()
+        categoryList.add("3 summer offers")
+        categoryList.add("Monthly essentials")
+        categoryList.add("Facials and spa")
+
+        return categoryList
+    }
 }

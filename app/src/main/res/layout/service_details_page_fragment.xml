@@ -29,11 +29,20 @@
         app:layout_constraintLeft_toLeftOf="@+id/backButton"
         />
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:id="@+id/serviceImages"
-        app:layout_constraintTop_toBottomOf="@id/backButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"
         >
     </androidx.viewpager.widget.ViewPager>
@@ -94,209 +103,212 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/separator1"
-        android:layout_marginTop="5dp"
-        android:animateLayoutChanges="true"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/holder">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/smallSummaryLay">
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/holder"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/open"
             android:layout_marginTop="5dp"
-            android:id="@+id/openStatus"
-            android:layout_marginLeft="30dp"
-            android:textColor="@android:color/holo_green_light"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/closesAt"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintLeft_toRightOf="@+id/openStatus"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/down_icon"
-            android:id="@+id/showLargeSummary"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginRight="25dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/separator1">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/smallSummaryLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/separator1"
-        android:layout_marginTop="5dp"
-        android:visibility="gone"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/largeSummaryLay">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/monday"
-            android:id="@+id/mondayText"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/closed"
-            android:id="@+id/mondayOpenStatus"
-            android:layout_marginLeft="70dp"
-            app:layout_constraintLeft_toRightOf="@id/mondayText"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tuesday"
-            android:id="@+id/TuesdayText"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mondayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/closed"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="70dp"
-            android:id="@+id/tuesdayOpenStatus"
-            app:layout_constraintLeft_toRightOf="@id/mondayText"
-            app:layout_constraintTop_toBottomOf="@id/mondayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wednesday"
-            android:id="@+id/WednesdayText"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/TuesdayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/closed"
-            android:id="@+id/wednesdayOpenStatus"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="70dp"
-            app:layout_constraintLeft_toRightOf="@id/mondayText"
-            app:layout_constraintTop_toBottomOf="@id/TuesdayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/thursday"
-            android:layout_marginTop="5dp"
-            android:id="@+id/ThursdayText"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/WednesdayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/closed"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="5dp"
-            android:id="@+id/thursdayOpenStatus"
-            app:layout_constraintLeft_toRightOf="@id/mondayText"
-            app:layout_constraintTop_toBottomOf="@id/wednesdayOpenStatus"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/friday"
-            android:id="@+id/FridayText"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ThursdayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/closed"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="5dp"
-            android:id="@+id/fridayOpenStatus"
-            app:layout_constraintLeft_toRightOf="@id/mondayText"
-            app:layout_constraintTop_toBottomOf="@id/thursdayOpenStatus"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/saturday"
-            android:id="@+id/SaturdayText"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FridayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/closed"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="70dp"
-            android:id="@+id/saturdayOpenStatus"
-            app:layout_constraintLeft_toRightOf="@id/mondayText"
-            app:layout_constraintTop_toBottomOf="@id/fridayOpenStatus"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sunday"
-            android:id="@+id/SundayText"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/SaturdayText"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/closed"
-            android:layout_marginLeft="70dp"
-            android:id="@+id/SundayOpenStatus"
-            app:layout_constraintLeft_toRightOf="@id/mondayText"
-            app:layout_constraintTop_toBottomOf="@id/saturdayOpenStatus"
-            />
+                <TextView
+                    android:id="@+id/openStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/open"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/up_icon"
-            android:id="@+id/showSmallSummary"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginRight="25dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/openCloseTiming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/closesAt"
+                    app:layout_constraintLeft_toRightOf="@+id/openStatus"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/showLargeSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/down_icon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/largeSummaryLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator1">
+
+                <TextView
+                    android:id="@+id/mondayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/monday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/mondayOpenStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:text="@string/closed"
+                    app:layout_constraintLeft_toRightOf="@id/mondayText"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/TuesdayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tuesday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mondayText" />
+
+                <TextView
+                    android:id="@+id/tuesdayOpenStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/closed"
+                    app:layout_constraintLeft_toRightOf="@id/mondayText"
+                    app:layout_constraintTop_toBottomOf="@id/mondayText" />
+
+                <TextView
+                    android:id="@+id/WednesdayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/wednesday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/TuesdayText" />
+
+                <TextView
+                    android:id="@+id/wednesdayOpenStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/closed"
+                    app:layout_constraintLeft_toRightOf="@id/mondayText"
+                    app:layout_constraintTop_toBottomOf="@id/TuesdayText" />
+
+                <TextView
+                    android:id="@+id/ThursdayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/thursday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/WednesdayText" />
+
+                <TextView
+                    android:id="@+id/thursdayOpenStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/closed"
+                    app:layout_constraintLeft_toRightOf="@id/mondayText"
+                    app:layout_constraintTop_toBottomOf="@id/wednesdayOpenStatus" />
+
+                <TextView
+                    android:id="@+id/FridayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/friday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ThursdayText" />
+
+                <TextView
+                    android:id="@+id/fridayOpenStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/closed"
+                    app:layout_constraintLeft_toRightOf="@id/mondayText"
+                    app:layout_constraintTop_toBottomOf="@id/thursdayOpenStatus" />
+
+                <TextView
+                    android:id="@+id/SaturdayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/saturday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/FridayText" />
+
+                <TextView
+                    android:id="@+id/saturdayOpenStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/closed"
+                    app:layout_constraintLeft_toRightOf="@id/mondayText"
+                    app:layout_constraintTop_toBottomOf="@id/fridayOpenStatus" />
+
+                <TextView
+                    android:id="@+id/SundayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/sunday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SaturdayText" />
+
+                <TextView
+                    android:id="@+id/SundayOpenStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/closed"
+                    app:layout_constraintLeft_toRightOf="@id/mondayText"
+                    app:layout_constraintTop_toBottomOf="@id/saturdayOpenStatus" />
+
+                <ImageView
+                    android:id="@+id/showSmallSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/up_icon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -405,5 +417,15 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"/>
 
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        layout="@layout/dashboard_item_base_layout"
+        android:id="@+id/ourServiceslayout"
+        app:layout_constraintTop_toBottomOf="@+id/bookAppointment"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

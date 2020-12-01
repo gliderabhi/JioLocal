@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="categoryServiceItem"
+            type="com.example.jiolocal.dao.ServiceCategoryItem" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/serviceImagesMerchant"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ServiceTitle"
+        app:layout_constraintTop_toBottomOf="@+id/serviceImagesMerchant"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        setText="@{categoryServiceItem.title}"
+        android:id="@+id/service_title_single_item"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Rate"
+        app:layout_constraintTop_toBottomOf="@+id/service_title_single_item"
+        android:textSize="18sp"
+        android:id="@+id/discountedPrice"
+        setText="@{categoryServiceItem.discountedPrice}"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/discountedPrice"
+        app:layout_constraintTop_toBottomOf="@+id/service_title_single_item"
+        android:textSize="18sp"
+        android:id="@+id/orderPrice"
+        setText="@{categoryServiceItem.offerPrice}"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/discountedPrice"
+        android:layout_marginLeft="30dp"/>
+
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:id="@+id/minus_button"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="-"
+        android:layout_marginTop="5dp"
+        app:layout_constraintRight_toLeftOf="@+id/addToCartButton"
+        android:textSize="28sp"
+        app:layout_constraintTop_toBottomOf="@+id/service_title_single_item"
+        android:background="@android:color/holo_blue_light"
+        android:textColor="@color/lightTextColor"/>
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:id="@+id/addToCartButton"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="55dp"
+        android:text="@string/add"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/service_title_single_item"
+        android:background="@android:color/holo_blue_light"
+        android:textColor="@color/lightTextColor"/>
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:id="@+id/plus_button"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="+"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/service_title_single_item"
+        android:layout_marginRight="25dp"
+        android:background="@android:color/holo_blue_light"
+        android:textColor="@color/lightTextColor"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeIcon"
+            android:src="@drawable/time_icon"
+            app:layout_constraintTop_toBottomOf="@+id/discountedPrice"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="10dp"
+            />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/serviceTime"
+        android:text="@string/_70_min"
+        setText="@{categoryServiceItem.time}"
+        app:layout_constraintTop_toBottomOf="@+id/discountedPrice"
+        app:layout_constraintLeft_toRightOf="@+id/timeIcon"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="10dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewDetails"
+        android:text="@string/view_details"
+        app:layout_constraintTop_toBottomOf="@+id/discountedPrice"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/right_icon"
+        app:layout_constraintTop_toBottomOf="@+id/discountedPrice"
+        app:layout_constraintLeft_toRightOf="@+id/ViewDetails"
+        android:layout_marginTop="22dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

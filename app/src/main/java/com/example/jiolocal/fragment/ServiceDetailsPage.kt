@@ -21,10 +21,15 @@ import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.jiolocal.MainActivity
 import com.example.jiolocal.R
+import com.example.jiolocal.adapters.TopOfferHeadAdapter
+import com.example.jiolocal.adapters.TopOfferListAdapter
 import com.example.jiolocal.adapters.ViewPagerAdapterImages
+import com.example.jiolocal.adapters.viewHolders.TopOfferHeadListViewHolder
 import com.example.jiolocal.databinding.ServiceDetailsPageFragmentBinding
 import com.example.jiolocal.fragment.viewModels.ServiceDetailsPageViewModel
 import java.time.DayOfWeek
@@ -70,7 +75,7 @@ class ServiceDetailsPage : Fragment() {
             smallSummary.visibility = View.GONE
         }
         val openText = view.findViewById<TextView>(R.id.openStatus)
-        openText.text = "CLOSED"
+        //openText.text = "CLOSED"
         if(openText.text == "CLOSED"){
             showLargeSummary.visibility = View.INVISIBLE
         }
@@ -165,6 +170,33 @@ class ServiceDetailsPage : Fragment() {
                 startActivity(intent)
             }
         }
+
+        val view = view.findViewById<View>(R.id.ourServiceslayout)
+        val head = view.findViewById<TextView>(R.id.dataType)
+        head.text = "Our Services"
+
+        //header list of categories of service
+        val categoryRecycler = view.findViewById<RecyclerView>(R.id.recycler1)
+        val categoryList = viewModel.getOurServicesData() as ArrayList<String>
+        categoryRecycler.layoutManager = LinearLayoutManager(
+            categoryRecycler.context,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        categoryRecycler.adapter = TopOfferHeadAdapter(categoryList)
+        categoryRecycler.visibility = View.VISIBLE
+
+
+        //recycler for each service list
+        val eachCategoryList = view.findViewById<RecyclerView>(R.id.recycler2)
+        eachCategoryList.layoutManager = LinearLayoutManager(
+            eachCategoryList.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+
+        eachCategoryList.adapter = TopOfferListAdapter(ArrayList<Any>(),context!!.getString(R.string.serviceTypes))
+
     }
 
 
